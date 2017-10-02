@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+      div.heed {
+        background-color: #333;
+        
+      }
+      div.conte {
+        background-color: lightblue;
+        text-align: center;
+      }
+      section {
+        margin-left: 170px;
+        padding-left: 50px;
+        
+      }
+    </style>
+  </head>
+  <body>
+   <div class="heed">
+    <ul class="navagation">
+      <li> <a href="home.html">Home</a></li>
+      <li class="dropdown"><a href="school.html" class="dropbtn">School</a>
+        <div class="dropdown-content">
+          <a href="https://classroom.google.com/u/0/h" target="_blank">Classroom</a>
+          <a href="http://faculty.xavierhs.org/vargasv/index3.html">Mr.Vargas's Spanish Website</a>
+          <a href="http://departments.xavierhs.org/athletics/xaviertrack/index.htm" target="_blank">Track</a>
+          <a href="https://twitter.com/xaviertrack" target="_blank">Track Twitter</a>
+          <a href="http://www.xavierhs.org/s/81/rd16/index.aspx?sid=81&gid=1&pgid=1666" target="_blank">Master calander</a>
+        </div>
+      </li>
+      <li class="dropdown"><a href="projectsf.html" class="dropbtn">Coding Projects (finished)</a>
+        <div class="dropdown-content">
+          <a href="index.html">Snake</a>
+        </div>
+      </li>
+      <li class="dropdown"><a href="projectsuf.html" class="dropbtn">Coding Projects (in progress)</a>
+      </li>
+      <li><a href="https://mail.google.com/mail/u/0/#inbox" target="_blank">Email</a></li>
+      </div>
+    </ul>
+    <div class="conte">
+    <h1><strong><br>Snake</strong></h1>
+    <h3>My First JavaScript Project</h3>
+    <p><strong>Controls:</strong><br>Arrow Keys control the snake's direction<br>Collect the randomly spawning food to grow larger and increase your score<br>Hitting the walls or your own tail will restart the game<br>(<em>Don't try to go the opposite direction that your snake is moving as it will restart the game</em>)</p>
+   
+                                                  
+    </div>
+  </body>
+  <section>
+     <script src="sketch.js"></script>
+  </section>
+</html>
