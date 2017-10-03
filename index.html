@@ -69,6 +69,9 @@
         </div>
       </li>
       <li class="dropdown"><a href="projectsuf.html" class="dropbtn">Coding Projects (in progress)</a>
+				<div class="dropdown-content">
+          <a href="dev.html">Dev page</a>
+        </div>
       </li>
       <li><a href="https://mail.google.com/mail/u/0/#inbox" target="_blank">Email</a></li>
       </div>
@@ -78,7 +81,8 @@
     <div class="conte">
     <h1><strong><br>Snake</strong></h1>
     <h3>My First JavaScript Project</h3>
-    
+    <button type="button" onclick="myFunction()">
+Blue</button>
                                                   
     
     <div id="wrap">
@@ -93,5 +97,13 @@ Click To Prevent Scrolling</button>
 				<button type="button" onclick="document.getElementById('id1').style.overflow = 'visible'">
 Click To Allow Scrolling</button></div></div>
       </div>
+		
+		
+	<script>
+		function myFunction() {
+    var x = document.getElementsByClassName("box");
+    x[0].style.backgroundColor = "blue";
+		}
+	</script>
   </body>
 </html>
