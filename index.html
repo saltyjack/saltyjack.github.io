@@ -6,24 +6,53 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.sound.min.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <style>
+		
+		
       div.heed {
         background-color: #333;
         
       }
+			
       div.conte {
         background-color: lightblue;
+        text-align: left;
+        
+      }
+				
+			div.switch {
+				float: right;
+				background-color: #333;
+			}
+      
+      div.ronte {
+        
         text-align: center;
       }
+      
       section {
         margin-left: 170px;
         padding-left: 50px;
         
       }
+      #wrap{
+    width:100%;
+    margin-left: 10px;
+    }
+    div.box{
+    background-color: red;
+    float:right;
+    position: absolute; 
+    left: 630px; 
+    top: 203px;
+    width:400px;
+    height:600px;
+    margin-right: 50px;
+      }
     </style>
   </head>
-  <body>
+  <body id="id1">
    <div class="heed">
-    <ul class="navagation">
+    <ul  class="navagation">
       <li> <a href="home.html">Home</a></li>
       <li class="dropdown"><a href="school.html" class="dropbtn">School</a>
         <div class="dropdown-content">
@@ -44,15 +73,25 @@
       <li><a href="https://mail.google.com/mail/u/0/#inbox" target="_blank">Email</a></li>
       </div>
     </ul>
+			<div class="switch">
+			</div>
     <div class="conte">
     <h1><strong><br>Snake</strong></h1>
     <h3>My First JavaScript Project</h3>
-    <p><strong>Controls:</strong><br>Arrow Keys control the snake's direction<br>Collect the randomly spawning food to grow larger and increase your score<br>Hitting the walls or your own tail will restart the game<br>(<em>Don't try to go the opposite direction that your snake is moving as it will restart the game</em>)</p>
-   
+    
                                                   
-    </div>
-  </body>
-  <section>
+    
+    <div id="wrap">
+      
      <script src="sketch.js"></script>
-  </section>
+    </div>
+    <div class="box">
+    <div class="ronte">
+      <p><strong>Controls:</strong><br>Arrow Keys control the snake's direction<br>Collect the randomly spawning food to grow larger and increase your score<br>Hitting the walls or your own tail will restart the game<br>(<em>Don't try to go the opposite direction that your snake is moving as it will restart the game</em>)</p><br><br><br><br><br><br><button type="button" onclick="document.getElementById('id1').style.overflow = 'hidden'">
+Click To Prevent Scrolling</button>
+				<br><br><br><br>
+				<button type="button" onclick="document.getElementById('id1').style.overflow = 'visible'">
+Click To Allow Scrolling</button></div></div>
+      </div>
+  </body>
 </html>
