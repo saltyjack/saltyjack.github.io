@@ -1,8 +1,27 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="style_2.css">
 	<style>
+		section {
+				text-align: right;
+				background-color: lightblue;
+				float:right;
+				
+				
+			}
+			
+			div.settings{
+    		background-color: lightblue;
+    		float:right;
+    		position: webkit-sticky;
+				position: sticky;
+    		right: 30px;
+				margin-right: 30px;
+      }
+		
+		
+		
 	 #wrap{
     width:100%;
     margin-left: 10px;
@@ -25,6 +44,14 @@
 		</style>
 	</head>
 <body>
+	
+	
+	
+	
+	
+	
+	
+	
    <div class="heed">
     <ul  class="navagation">
       <li> <a href="home.html">Home</a></li>
@@ -51,11 +78,36 @@
 		 </ul>
 	  </div>
 	
+	<section>
+			<div class="settings">
+				<ul>
+					<li class="dropdown"> setting
+						<div class="dropdown-content">
+		 				<button type="button" onclick="myFunctionblue()">
+Blue</button>
+							<button type="button" onclick="myFunctionred()">
+Red</button>
+							<button type="button" onclick="myFunctiongrey()">
+Grey</button>
+							<button type="button" onclick="myFunctionyellow()">
+Yellow</button>
+							<button type="button" onclick="myFunctionorange()">
+Orange</button>
+						</div>
+					</li>
+				</ul>
+			</div>
+		
+		</section>
+	
 	<div id="wrap">
 	<div class="box">
 		
-		<button type="button" onclick="myFunction()">
-Blue</button>
+	
+          <a href="https://classroom.google.com/u/0/h" target="_blank">Classroom</a>
+          <a href="http://faculty.xavierhs.org/vargasv/index3.html">Mr.Vargas's Spanish Website</a>
+			</div>
+		</button>
 		
 		</div>
 	
@@ -63,10 +115,27 @@ Blue</button>
 	</div>
 	
 	<script>
-		function myFunction() {
+		function myFunctionblue() {
     var x = document.getElementsByClassName("box");
     x[0].style.backgroundColor = "blue";
 		}
+		function myFunctionred() {
+    var x = document.getElementsByClassName("box");
+    x[0].style.backgroundColor = "red";
+		}
+		function myFunctiongrey() {
+    var x = document.getElementsByClassName("box");
+    x[0].style.backgroundColor = "grey";
+		}
+		function myFunctionyellow() {
+    var x = document.getElementsByClassName("box");
+    x[0].style.backgroundColor = "yellow";
+		}
+		function myFunctionorange() {
+    var x = document.getElementsByClassName("box");
+    x[0].style.backgroundColor = "orange";
+		}
+		
 	</script>
 	
 	
