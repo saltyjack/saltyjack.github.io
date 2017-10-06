@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style_2.css">
     <style>
 			section {
 				text-align: right;
 				background-color: lightblue;
 				float:right;
 				
+			
 				
 			}
 			
 			div.settings{
-    		background-color: lightblue;
+   
     		float:right;
     		position: webkit-sticky;
 				position: sticky;
     		right: 30px;
 				margin-right: 30px;
       }
-		
 			
 			div.settingsb{
   
@@ -30,7 +33,53 @@
 				margin-right: 60px;
       }
 		
-			div.brackground{
+		
+		
+      div.heed {
+        background-color: #333;
+        
+      }
+			
+      div.conte {
+     
+        text-align: left;
+        
+      }
+				
+			div.switch {
+				float: right;
+				background-color: #333;
+			}
+      
+      div.ronte {
+        
+        text-align: center;
+      }
+      
+      section {
+        margin-left: 170px;
+        padding-left: 50px;
+        
+      }
+			
+			
+			
+      #wrap{
+    width:100%;
+    margin-left: 10px;
+    }
+    div.box{
+    background-color: red;
+    float:right;
+    position: absolute; 
+    left: 630px; 
+    top: 203px;
+    width:400px;
+    height:600px;
+    margin-right: 50px;
+      }
+			
+		div.brackground{
 			margin-top:10px;
 			float:left;
 			width:100%;
@@ -42,28 +91,13 @@
 			z-index: -1;
 				
 					}
-		
-			
-			
-			
-        div.heed {
-        background-color: #333;
-        
-      }
-     div.conte {
-        background-color: lightblue;
-        text-align: left;
-    }
-    div.sari {
-  
-      text-align: center
-    }
     </style>
   </head>
-  <body>
-    <div class="heed">
-    <ul class="navagation">
-      <li style="float:right"><a class="active" href="home.html">Home</a></li>
+  <body id="id1">
+	
+   <div class="heed">
+    <ul  class="navagation">
+      <li> <a href="home.html">Home</a></li>
       <li class="dropdown"><a href="school.html" class="dropbtn">School</a>
         <div class="dropdown-content">
           <a href="https://classroom.google.com/u/0/h" target="_blank">Classroom</a>
@@ -76,21 +110,37 @@
       <li class="dropdown"><a href="projectsf.html" class="dropbtn">Coding Projects (finished)</a>
         <div class="dropdown-content">
           <a href="index.html">Snake</a>
-					<a href="asteroids.html">Asterioids-messer</a>
         </div>
       </li>
       <li class="dropdown"><a href="projectsuf.html" class="dropbtn">Coding Projects (in progress)</a>
-				 <div class="dropdown-content">
+				<div class="dropdown-content">
           <a href="dev.html">Dev page</a>
         </div>
       </li>
       <li><a href="https://mail.google.com/mail/u/0/#inbox" target="_blank">Email</a></li>
       </div>
-			<section>
+    </ul>
+			<div class="switch">
+			</div>
+		
+		
+		<section>
 			<div class="settings">
 				<ul style="background: rgba(,,,100)">
 					<li class="dropdown" style="background-color: lightblue;"> <img src="http://icons.iconarchive.com/icons/grafikartes/flat-retro-modern/256/settings-icon.png" style="width:30px;height:30px;">
 						<div class="dropdown-content">
+		 				<button type="button" onclick="myFunctionblue()" style="width:80px;height:45px;">
+Blue</button>
+							<button type="button" onclick="myFunctionred()" style="width:80px;height:45px;">
+Red</button>
+							<button type="button" onclick="myFunctiongrey()" style="width:80px;height:45px;">
+Grey</button>
+							<button type="button" onclick="myFunctionyellow()" style="width:80px;height:45px;">
+Yellow</button>
+							<button type="button" onclick="myFunctionorange()" style="width:80px;height:45px;">
+Orange</button>
+
+							<p>background</p>
 							
 							<button type="button" onclick="myFunctionking()" style="width:80px;height:45px;">
 Blue</button>
@@ -113,11 +163,51 @@ Orange</button>
 		<div class="brackground"></div>
 		</section>
 	
-	
-	
-	
-	
+		
+    <div class="conte">
+    <h1><strong><br>Asteroids</strong></h1>
+    <h3>Messer's First JavaScript Project</h3>
+   
+                                                  
+    
+    <div id="wrap">
+      
+     <script src="asteroids.js"></script>
+			
+    </div>
+		
+			
+    <div class="box">
+    <div class="ronte">
+      <p><strong>Controls:</strong><br>Arrow Keys control the snake's direction<br>Collect the randomly spawning food to grow larger and increase your score<br>Hitting the walls or your own tail will restart the game<br>(<em>Don't try to go the opposite direction that your snake is moving as it will restart the game</em>)</p><br><br><br><br><br><br><button type="button" onclick="document.getElementById('id1').style.overflow = 'hidden'">
+Click To Prevent Scrolling</button>
+				<br><br><br><br>
+				<button type="button" onclick="document.getElementById('id1').style.overflow = 'visible'">
+Click To Allow Scrolling</button></div></div>
+      </div>
+		
+		
 	<script>
+		function myFunctionblue() {
+    var x = document.getElementsByClassName("box");
+    x[0].style.backgroundColor = "blue";
+		}
+		function myFunctionred() {
+    var x = document.getElementsByClassName("box");
+    x[0].style.backgroundColor = "red";
+		}
+		function myFunctiongrey() {
+    var x = document.getElementsByClassName("box");
+    x[0].style.backgroundColor = "grey";
+		}
+		function myFunctionyellow() {
+    var x = document.getElementsByClassName("box");
+    x[0].style.backgroundColor = "yellow";
+		}
+		function myFunctionorange() {
+    var x = document.getElementsByClassName("box");
+    x[0].style.backgroundColor = "orange";
+		}
 		function myFunctionking() {
     var x = document.getElementsByClassName("brackground");
     x[0].style.backgroundColor = "blue";
@@ -140,17 +230,7 @@ Orange</button>
 		}
 		
 	</script>
-			
-			
-			
-			
-			
-			
-      <br>
-      <br>
-      <div class="sari">
-      <h1 style="align-content: center"><br><br>I Dont Know What To Put Here</h1>
-      </div>
-    </ul>
+	
+
   </body>
 </html>
