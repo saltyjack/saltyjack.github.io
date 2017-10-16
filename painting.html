@@ -1,8 +1,31 @@
 <!DOCTYPE html>
 <html>
 	<head>
+	
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.sound.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="style_2.css">
 	<style>
+		 div.ronte {
+        
+        text-align: center;
+		}
+		
+		div.conte {
+     
+        text-align: left;
+		}
+		
+		div.cannv{
+			width:80%;
+			
+			
+		}
+		
+		
+		
+		
 		section {
 				text-align: right;
 				background-color: lightblue;
@@ -34,29 +57,118 @@
 		
 		
 	 #wrap{
-    width:100%;
+    width:80%;
+		position:absolute;
     margin-left: 10px;
+		
     }
     div.box{
-    background-color: red;
+    background-color: white;
     float:right;
     position: absolute; 
-    left: 630px; 
-    top: 203px;
-    width:400px;
-    height:600px;
-    margin-right: 50px;
+    right:00px; 
+    top: 00px;
+    width:393px;
+    height:100%;
+    margin-right: 0px;
+		z-index: -1;
       }
 		
 		div.heed {
         background-color: #333;
 		}
      
-		
+	
 		
 		</style>
-	</head>
-<body>
+
+	</head>  
+    
+  
+    <body onload="init()">
+			<script>
+    var canvas, ctx, flag = false,
+        prevX = 0,
+        currX = 0,
+        prevY = 0,
+        currY = 0,
+        dot_flag = false;
+
+    var x = "black",
+        y = 2;
+    
+    function init() {
+			
+        canvas = document.getElementById('can');
+        ctx = canvas.getContext("2d");
+        w = canvas.width;
+        h = canvas.height;
+    
+        canvas.addEventListener("mousemove", function (e) {
+             if (flag) {
+                prevX = currX;
+                prevY = currY;
+                currX = e.clientX - canvas.offsetLeft;
+                currY = e.clientY - canvas.offsetTop;
+                draw();
+            }
+        }, false);
+        canvas.addEventListener("mousedown", function (e) {
+            prevX = currX;
+            prevY = currY;
+            currX = e.clientX - canvas.offsetLeft;
+            currY = e.clientY - canvas.offsetTop;
+    
+            flag = true;
+            dot_flag = true;
+            if (dot_flag) {
+                ctx.beginPath();
+                ctx.fillStyle = x;
+                ctx.fillRect(currX, currY, 2, 2);
+                ctx.closePath();
+                dot_flag = false;
+            }
+        }, false);
+        canvas.addEventListener("mouseup", function (e) {
+              flag = false;
+        }, false);
+        canvas.addEventListener("mouseout", function (e) {
+            flag = false;
+        }, false);
+    }
+				
+		function erase() {
+      var m = confirm("Want to clear");
+      if (m) {
+        ctx.clearRect(0, 0, w, h);
+        document.getElementById("canvasimg").style.display = "none";
+        }
+    }
+    
+  
+    
+    function draw() {
+        ctx.beginPath();
+        ctx.moveTo(prevX, prevY);
+        ctx.lineTo(currX, currY);
+        ctx.strokeStyle = x;
+        ctx.lineWidth = y;
+        ctx.stroke();
+        ctx.closePath();
+			
+    }
+				
+		function blue(){
+			
+			x = "red"
+		}
+			</script>
+			
+        <canvas id="can" width="800" height="700" style="position:absolute;top:49px;left:0%;border:2px solid;"></canvas>
+			  <input type="button" value="clear" id="clr" size="23" onclick="erase()" style="position:absolute;top:49px;left:810px;">
+				<button onclick="blue()" style="position: absolute;top: 70px;left: 810px">Blue</button>
+       
+    
 	
    <div class="heed">
     <ul  class="navagation">
@@ -74,13 +186,11 @@
         <div class="dropdown-content">
           <a href="index.html">Snake</a>
 					<a href="asteroids.html">Asterioids-messer</a>
-					
         </div>
       </li>
       <li class="dropdown"><a href="projectsuf.html" class="dropbtn">Coding Projects (in progress)</a>
 				<div class="dropdown-content">
           <a href="dev.html">Dev page</a>
-					<a href="painting.html">Painting(mostly done)</a>
         </div>
       </li>
 			<li><a href="https://mail.google.com/mail/u/0/#inbox" target="_blank">Email</a></li>
@@ -103,7 +213,7 @@ Grey</button>
 Yellow</button>
 							<button type="button" onclick="myFunctionjoker()" style="width:80px;height:45px;">
 Orange</button>
-							
+								
 							
 							
 						</div>
@@ -114,7 +224,13 @@ Orange</button>
 		<div class="brackground"></div>
 		</section>
 	
-	
+	<div class="box">
+	<br><br>
+		
+	</div>
+	<div id="wrap">
+
+	</div>
 	
 	
 	

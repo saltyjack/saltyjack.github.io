@@ -3,6 +3,23 @@
 	<head>
 	<link rel="stylesheet" type="text/css" href="style_2.css">
 	<style>
+		  .dropdown-content {
+		float:right;
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+		margin-right: 100px;
+}
+		
+		 .dropdown:hover .dropdown-content {
+    display:block;
+		float: left;
+		margin-right: 100px;
+		}
+		
 		section {
 				text-align: right;
 				background-color: lightblue;
@@ -69,16 +86,7 @@
 	
 	
 	
-	<div id="wrap">
-	<div class="box">
-		
 	
-          <a href="https://classroom.google.com/u/0/h" target="_blank">Classroom</a>
-          <a href="http://faculty.xavierhs.org/vargasv/index3.html">Mr.Vargas's Spanish Website</a>
-			</div>
-		
-		
-		</div>
 	
 	
 	
@@ -103,6 +111,7 @@
       <li class="dropdown"><a href="projectsuf.html" class="dropbtn">Coding Projects (in progress)</a>
 				<div class="dropdown-content">
           <a href="dev.html">Dev page</a>
+					<a href="painting.html">Painting(mostly done)</a>
         </div>
       </li>
 			<li><a href="https://mail.google.com/mail/u/0/#inbox" target="_blank">Email</a></li>
@@ -111,33 +120,19 @@
 	
 	<section>
 			<div class="settings">
-				<ul style="background: rgba(,,,100)">
-					<li class="dropdown" style="background-color: lightblue;"> <img src="http://icons.iconarchive.com/icons/grafikartes/flat-retro-modern/256/settings-icon.png" style="width:30px;height:30px;">
+				<ul>
+					<li class="dropdown" style="background-color: lightblue;"> 
+						<img src="http://icons.iconarchive.com/icons/grafikartes/flat-retro-modern/256/settings-icon.png" width="30px" height="30px">
 						<div class="dropdown-content">
-		 				<button type="button" onclick="myFunctionblue()" style="width:80px;height:45px;">
-Blue</button>
-							<button type="button" onclick="myFunctionred()" style="width:80px;height:45px;">
-Red</button>
-							<button type="button" onclick="myFunctiongrey()" style="width:80px;height:45px;">
-Grey</button>
-							<button type="button" onclick="myFunctionyellow()" style="width:80px;height:45px;">
-Yellow</button>
-							<button type="button" onclick="myFunctionorange()" style="width:80px;height:45px;">
-Orange</button>
+							<img src="http://www.pagetutor.com/colorpicker/picker2/net216.gif" width="146" height="98" usemap="colorpic">
 
-							<p>background</p>
 							
-							<button type="button" onclick="myFunctionking()" style="width:80px;height:45px;">
-Blue</button>
-							<button type="button" onclick="myFunctionqueen()" style="width:80px;height:45px;">
-Red</button>
-							<button type="button" onclick="myFunctionjack()" style="width:80px;height:45px;">
-Grey</button>
-							<button type="button" onclick="myFunctionace()" style="width:80px;height:45px;">
-Yellow</button>
-							<button type="button" onclick="myFunctionjoker()" style="width:80px;height:45px;">
-Orange</button>
+							<map name="colorpic">
+								
+								
 							
+							
+							</map>
 							
 							
 						</div>

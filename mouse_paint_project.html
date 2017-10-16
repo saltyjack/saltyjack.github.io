@@ -1,8 +1,22 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.sound.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="style_2.css">
 	<style>
+		 div.ronte {
+        
+        text-align: center;
+		}
+		
+		div.conte {
+     
+        text-align: left;
+		}
+		
+		
 		section {
 				text-align: right;
 				background-color: lightblue;
@@ -34,18 +48,21 @@
 		
 		
 	 #wrap{
-    width:100%;
+    width:80%;
+		position:absolute;
     margin-left: 10px;
+		
     }
     div.box{
-    background-color: red;
+    background-image: url(http://www.html5canvastutorials.com/demos/assets/color-picker.png)
     float:right;
     position: absolute; 
-    left: 630px; 
-    top: 203px;
-    width:400px;
-    height:600px;
-    margin-right: 50px;
+    right:00px; 
+    top: 00px;
+    width:393px;
+    height:100%;
+    margin-right: 0px;
+		z-index: -1;
       }
 		
 		div.heed {
@@ -74,13 +91,11 @@
         <div class="dropdown-content">
           <a href="index.html">Snake</a>
 					<a href="asteroids.html">Asterioids-messer</a>
-					
         </div>
       </li>
       <li class="dropdown"><a href="projectsuf.html" class="dropbtn">Coding Projects (in progress)</a>
 				<div class="dropdown-content">
           <a href="dev.html">Dev page</a>
-					<a href="painting.html">Painting(mostly done)</a>
         </div>
       </li>
 			<li><a href="https://mail.google.com/mail/u/0/#inbox" target="_blank">Email</a></li>
@@ -113,9 +128,14 @@ Orange</button>
 	
 		<div class="brackground"></div>
 		</section>
-	
-	
-	
+	<div id="wrap">
+	 <script src="drawer.js"></script>
+	</div>
+	<div class="box">
+	<br><br>
+		<h1>Random Color Script</h1>
+		<h3>Move your mouse around to draw and the color will change automatically.</h3>
+	</div>
 	
 	
 	<script>
