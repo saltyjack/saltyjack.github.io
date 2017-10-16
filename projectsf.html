@@ -2,8 +2,14 @@
 <html>
 
 <head>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" type="text/css" href="style_2.css">
 	<style>
+		div.projectsf{
+			color: white;
+			
+			
+			
+		}
 	section {
 				text-align: right;
 				background-color: lightblue;
@@ -12,6 +18,9 @@
 				
 			}
 			
+		
+		
+		
 			div.settings{
     		background-color: lightblue;
     		float:right;
@@ -31,21 +40,46 @@
 				margin-right: 60px;
       }
 		
-			div.brackground{
+		div.snake{
+			width:100%;
+			background-image:  url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASYAAACrCAMAAAD8Q8FaAAAAyVBMVEUAAAAWMkw13gAVMEgDCAg24gANIC024QA35QAAAAcSYhkkrw8MWREVcAwmsgkjqhAqvg0BQAorxwoCQhEoriMUIk4AEgwJRQz/AAA56gAAHwsuzQkrwgggpQ8AMxEMdhUThxMITAgAAA4nugsYkhEKXA8bmhAUiBIz2gQamBEFchcIexUAPhGpAADpAAAAABYnAABXEhcKVBEAaBcUJU4ANxAUKEwu0gUMUhcAKQsOWBkMUBoGRxg88wAAGAsAHQs6DA8UNEcaAABOxJiOAAAHXklEQVR4nO2dfVebWBDGNcoCJQsErW4EhAqFJLhvWhur223d7/+hFmYubS4H7Wgi96aZ3x/OeQIBzmOYkOHOZW+fIbCn+gC2A7aJBNtEgm0iwTaRYJtIrNh0oA8PH982fHyA8PbhA8Z9DAdi6YF4FeWHh80fR49Nvxxqg/3JOW7IKwjHIswTjGkBIRYvJyiPb+xNH8feQY9Ne/pwNrUawgLitJyBnOUo8yXIpSyt880fh+42WaMaM5hDtMplE0bLHKRRhiDD0oClOS4dsU1sUy9sEwm2iUQnhecjTOFzlPOllNGFtD5t/jh0tylNGqrbMXA/luLtlYgiJLjy6emk5vRygpyDnODfybsbjGLpt7Uwnj5ise424UkXHlJW/nNpNmvPyqlZYxWBUQfDrCyQcdZEY1QaIJ0MXxZLMwfi9H3/prfEphPKyt9swkRWRCBHCSayOEOZQiIzvAwTWoVLXRffNO7f9M9l04hsk+mh/G6TwTaxTSvssE2QjQ2iTTPIzqM2hUcgzUSkcB9lCdLopPA6N0EK31KbIsD9l7LyRRQ0RGnYhDB3QQYV/A3nHi5FGcQFxiREOYcdBVf9m9bdJiduKL484z32hYg2RiHbeNH7qp3Djrzb/m3qbtPUaFiSTrp1sF2r2dG2nnTPSeHrYO/OddM6sE0k2CYSW24TpHDrp0zhX/9G1t1OzVleNqRnG9jWk9gJ7Ki871/8Gjb9/hvwx7rbqTkzZjWjIU46s9mTMeCnaZM2/cS5iW0iwTaRYJtIbNKm5xRS1sEevpCySZsiv8EhFVLWwZ7DnqIBCyn//YWsu52aM9dpiJ9TSHkRdg57crmQ8iRcSCGx5b/p2CYKbBMJtonEFxyRMkAKz3BUi3qbjnq57H+5pcJRJq9fSLkWo1n6Fw9okxh9lOK/LRP/vgpD5IgRTLhS5KFMjYHLcupHpITSver2bjTenDazGO9Zl7CO6aO0xJ3sXcpNbBMJtonED2wy2SYghCRpJBCaISCQMyuUmYexNCH4MS5NrcFS+FST33ReBiQ49KMoMC4CiHGOY08qf1UGC/8ZI1LWwZ77zcFFVxeILaJYPKBNheM1TOwXQBqiug52CUfnXONBFinK9sM19ElnWe9eafPrUV+Fw0mXGHDdFsR43farWDx4Cjc0tUmk8AS/QoICv0LYJhm2iQTbRELYZGhgU5MVp1NNbcqmDZ8rC2KoLoVXi4bq8pU2vyZX74EjDGM41kXS3mgZ0CbstNH0gqALdvqoOOkCnXNTF49TOAW2iQTbREKhTdgWuSU24QAVBTa5UEeJtsOmHOoq/rWQA9o0x+YZTa+bOqR4sKoKKdtz3VQfq5KTjlM4CbaJBNtEgn+skNiu6yZD1XVTCpQ3r7T5zZLgwaoopMygTWdLPk0j6PRRlpu25qRrDpavm34AXxCQYJtI8AUBCXWFFDEi5eiVNr9ZcjzYdijmkCNSYKyHt8BunTyH4C4clCXGykOZokxQFihdsdSrhIyx8afCTQrZ7iEtxDYwpLhDT8gSpSNWnovDaTugSk/piBTDSKbyMLDp6rgvo38YWFjgeJFyhp0+Ob4pX6IscWUhRyWuXETSDmMfpIkrN3PLScPQOq09qgspLxp7+ax5LzcyzZXqbzq2iW3aBAHbRCHENh3RfZG5UjNGhs0YVm6C9MWIkNSSJ5t9cr5wMdlsncJBFoHU/RH7EOsUDtKVm0F8pyeFGypS+N0b4FYEIf+R5f0Y5b2QGMb30ntbeYcrj+X3tpt8RLabvJPknaictHOkJCXIttNH80ax4XB0Oem0pttlwDb1wjaRYJtIsE0kunOkqCukaI09z9wav60Q5CgVFFK0xs69ZgiK095xKkF6bJNMt59O3VW41nAKJ8E2kWCbSLBNJNrWnm8pHCXbJGMvKmmOFCEVjEjRGtuVZ9xxlDWKaQ3nJhJsEwm2iQTbRIILKSS6k80KqaC1R2vssq+QomJEitbwdRMJTuEk2CYSbBMJtolEWwtv7xFwLbwXG0ekpO2IlAVKLqTI2K4pn3Q41p8/TTL9uYlPug6cwkmwTSTYJhJcSCFhF1xIIWDnMLvs99YenGyWR6TI8ElHglM4CbaJBNtEgm0i0Z/Cd8Gmk1PkBsPlkSwnkpxUpTQpiro5UobmZIltvOlqr6816vb6il5jB9v/d/DTFD7ddrja9mi4O1tI+ZFNmnZnDg3bRIJtInGCk7KYCTxCuU7hKEtMznUKhyuACqW7s7/pThx4dLKfYE0kj1FW+ETlOcpogUtjUUhpbcLWnmwXCiniiT8n4sE/srQfkeK93NpDgm9nktidFL4WbBMJtokE20SCW3tkPp0DNzciYjh/c92w2IFCCo3bz/j45Wx1ih+Vz4DSk8up9JtO/RPF9IRtIsE2kWCbSFxOpXkvE5x3M4j5N53EaQjPWfYKeAxzgA9njrw5yl0opJA4lAspHangKdHbDNtEgm0i0WfTIdOhz6b9A6bLfo9NzOOwTSTYJhJsEwm2iQTbRIJtIvE/nClrjPQwZPcAAAAASUVORK5CYII=");
+			
+			background-repeat: repeat-x;
+			background-size: contain;
+			height: 200px;
+		}
+		
+		div.asteroid{
+			width:100%;
+			background-image:  url("https://i.ytimg.com/vi/5pg89nS3Uvg/maxresdefault.jpg");
+			background-repeat: repeat-x;
+			background-size: contain;
+			height: 200px;
+		}
+	
+	ul.projet {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 100%;
+    }
+		
+		div.brackground{
 			margin-top:10px;
 			float:left;
 			width:100%;
 			height:100%;
-			background-color:yellow;
+			background-image: url(http://cdn.wonderfulengineering.com/wp-content/uploads/2014/04/code-wallpaper-2.jpg);
+			background-color:white;
+			background-repeat: no-repeat;
+			background-size: 100%,100%;
 			position: absolute;
 			top:10px;
 			left:0px;
 			z-index: -1;
 				
 					}
-		
-	
-	
 	
 	
 	</style>
@@ -65,11 +99,13 @@
       <li style="float:right"><a class="active" href="projectsf.html">Coding Projects (finished)</a>
         <div class="dropdown-content">
           <a href="index.html">Snake</a>
+					<a href="asteroids.html">Asterioids-messer</a>
         </div>
       </li>
       <li class="dropdown"><a href="projectsuf.html" class="dropbtn">Coding Projects (in progress)</a>
 				<div class="dropdown-content">
           <a href="dev.html">Dev page</a>
+					<a href="painting.html">Painting(mostly done)</a>
         </div>
       </li>
       <li><a href="https://mail.google.com/mail/u/0/#inbox" target="_blank">Email</a></li>
@@ -87,9 +123,11 @@ Red</button>
 							<button type="button" onclick="myFunctionjack()" style="width:80px;height:45px;">
 Grey</button>
 							<button type="button" onclick="myFunctionace()" style="width:80px;height:45px;">
-Yellow</button>
+White</button>
 							<button type="button" onclick="myFunctionjoker()" style="width:80px;height:45px;">
 Orange</button>
+							<button type="button" onclick="myFunctionimige()" style="width:80px;height:45px;">
+Original</button>
 							
 							
 							
@@ -120,22 +158,33 @@ Orange</button>
 		}
 		function myFunctionace() {
     var x = document.getElementsByClassName("brackground");
-    x[0].style.backgroundColor = "yellow";
+    x[0].style.backgroundColor = "white";
+		x[0].style.backgroundImage = "url()";
+		
 		}
 		function myFunctionjoker() {
     var x = document.getElementsByClassName("brackground");
     x[0].style.backgroundColor = "orange";
 		}
+		function myFunctionimige() {
+    var x = document.getElementsByClassName("brackground");
+		x[0].style.backgroundImage = "url('http://cdn.wonderfulengineering.com/wp-content/uploads/2014/04/code-wallpaper-2.jpg')";
 		
+		}
 	</script>
 		
 		
-		
+		<div class="projectsf">
     <h2><strong>Projects</strong></h2>
-    <h3>New Project <a href="https://codepen.io/">(<en>CodePen</en>)</a> <a href="http://alpha.editor.p5js.org/">(<en>P5JS</en>)</a></h3>
+		
+    <h3>New Project <a href="https://codepen.io/" style="color:lightblue" >(<en>CodePen</en>)</a> <a href="http://alpha.editor.p5js.org/" style="color:lightblue">(P5JSe)</a></h3>
     <br>
     <h3>Finished Projects</h3>
-    <h4><a href="index.html">Snake</a></h4>
+	
+			<a href="index.html"><div class="snake"><h2 style="color: white">Snake</h2></div></a>
+			<a href="asteroids.html"><div class="asteroid" style="margin-top: 0px"><h2 style="color: white">Asterioids-messer</h2></div></a>
+		</div>
+
 </body>
 
 </html>
