@@ -1,16 +1,152 @@
 <html>
-    <script type="text/javascript">
-    var canvas, ctx, flag = false,
+    <html>
+	<head>
+	
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.dom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.sound.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="style_2.css">
+	<style>
+		 div.ronte {
+        
+        text-align: center;
+		}
+		
+		div.conte {
+     
+        text-align: left;
+		}
+		
+		div.cannv{
+			width:80%;
+			
+			
+		}
+		
+		
+		
+		
+		section {
+				text-align: right;
+				background-color: lightblue;
+				float:right;
+				
+				
+			}
+			
+			div.settings{
+    		background-color: lightblue;
+    		float:right;
+    		position: webkit-sticky;
+				position: sticky;
+    		right: 30px;
+				margin-right: 30px;
+      }
+		
+		div.controls{
+			position: absolute;
+			top:60px;
+			left:850px;
+			width:400px;
+			background-color: red;
+			height:100%;
+			
+			
+		}	
+		
+			div.settingsb{
+  
+    		float:right;
+    		position: webkit-sticky;
+				position: sticky;
+    		right: 60px;
+				margin-right: 60px;
+      }
+		
+		
+			
+		}
+		
+		
+	 #wrap{
+    width:80%;
+		position:absolute;
+    margin-left: 10px;
+		
+    }
+    div.box{
+    background-color: white;
+    float:right;
+    position: absolute; 
+    right:00px; 
+    top: 00px;
+    width:393px;
+    height:100%;
+    margin-right: 0px;
+		z-index: -1;
+      }
+		
+		div.heed {
+        background-color: #333;
+		}
+     
+	
+		
+		</style>
+
+	</head>  
+    
+  
+    <body onload="init()">
+			
+    
+			
+        <canvas id="can" width="800" height="700" style="position:absolute;top:49px;left:0%;border:2px solid;"></canvas>
+			<div class="controls">
+				
+			  <input type="button" value="clear" id="clr" size="23" onclick="erase()">
+			 <br><br>
+        <input type="range" min="1" max="6" value="0" class="slider" id="myRange">
+        <p> value: <span id="demo"></span></p>
+			  <button onclick="myFunction()">set width</button><br>
+        <input type="range" min="1" max="255" value="50" class="slider" id="myRanger">
+        <p> r-value: <span id="demor"></span></p>
+				<input type="range" min="1" max="230" value="50" class="slider" id="myRangeg">
+        <p> g-value: <span id="demog"></span></p>
+				<input type="range" min="1" max="55" value="50" class="slider" id="myRangeb">
+        <p> b-value: <span id="demob"></span></p>
+			  <button onclick="myFunctionr()">Set color</button>
+				<p id="test"></p>
+				<button onclick="myFunctiont()">test</button>
+				<p id="test2"></p>
+				
+				<script>
+					var canvas, ctx, flag = false,
         prevX = 0,
         currX = 0,
         prevY = 0,
         currY = 0,
         dot_flag = false;
 
-    var x = "black",
-        y = 2;
+    var y;
+		y = 2;
+		var r;
+		r = 0;
+		var g;
+		g = 0;
+		var b;
+		b = 0;	
+		var cc;
+		cc = 0;
+		var ee;
+		ee = 0;
+		var rr;
+		
+				
+				
     
     function init() {
+			
         canvas = document.getElementById('can');
         ctx = canvas.getContext("2d");
         w = canvas.width;
@@ -42,30 +178,170 @@
             }
         }, false);
         canvas.addEventListener("mouseup", function (e) {
-            findxy('up', e)
+              flag = false;
         }, false);
         canvas.addEventListener("mouseout", function (e) {
-            findxy('out', e)
+            flag = false;
         }, false);
+    }
+				
+		function erase() {
+      var m = confirm("Want to clear");
+      if (m) {
+        ctx.clearRect(0, 0, w, h);
+        document.getElementById("canvasimg").style.display = "none";
+        }
     }
     
   
+		function myFunction() {
+    var l = document.getElementById("myRange").value;
+    document.getElementById("demo").innerHTML = l;
+    y = document.getElementById("myRange").value;
+}
+function myFunctionr() {
+		
+    var l = document.getElementById("myRanger").value;
+    document.getElementById("demor").innerHTML = l;
+	  var j = document.getElementById("myRangeg").value;
+    document.getElementById("demog").innerHTML = j;
+	  var f = document.getElementById("myRangeb").value;
+    document.getElementById("demob").innerHTML = f;
+    r = document.getElementById("myRanger").value;
+	  g = document.getElementById("myRangeg").value;
+	  b = document.getElementById("myRangeb").value;
+	  
+	  document.getElementById("test").innerHTML =cc
+	  
+	 
+}
+
+	function myFunctiont() {
+		document.getElementById("test2").innerHTML = ee
+	  rr = document.getElementById("test2").innerHTML
+	
+		
+	}
+
     
     function draw() {
+			
+			
         ctx.beginPath();
         ctx.moveTo(prevX, prevY);
         ctx.lineTo(currX, currY);
-        ctx.strokeStyle = x;
+			
+			
+				ctx.strokeStyle = '#24817450';
+			
         ctx.lineWidth = y;
         ctx.stroke();
         ctx.closePath();
+			
     }
+				
+	
+			
+			
+		
+			</script>
+				
+			</div>
     
-    
-    
-    </script>
-    <body onload="init()">
-        <canvas id="can" width="400" height="400" style="position:absolute;top:10%;left:10%;border:2px solid;"></canvas>
+	
+   <div class="heed">
+    <ul  class="navagation">
+      <li> <a href="home.html">Home</a></li>
+      <li class="dropdown"><a href="school.html" class="dropbtn">School</a>
+        <div class="dropdown-content">
+          <a href="https://classroom.google.com/u/0/h" target="_blank">Classroom</a>
+          <a href="http://faculty.xavierhs.org/vargasv/index3.html">Mr.Vargas's Spanish Website</a>
+          <a href="http://departments.xavierhs.org/athletics/xaviertrack/index.htm" target="_blank">Track</a>
+          <a href="https://twitter.com/xaviertrack" target="_blank">Track Twitter</a>
+          <a href="http://www.xavierhs.org/s/81/rd16/index.aspx?sid=81&gid=1&pgid=1666" target="_blank">Master calander</a>
+        </div>
+      </li>
+      <li class="dropdown"><a href="projectsf.html" class="dropbtn">Coding Projects (finished)</a>
+        <div class="dropdown-content">
+          <a href="index.html">Snake</a>
+					<a href="asteroids.html">Asterioids-messer</a>
+        </div>
+      </li>
+      <li class="dropdown"><a href="projectsuf.html" class="dropbtn">Coding Projects (in progress)</a>
+				<div class="dropdown-content">
+          <a href="dev.html">Dev page</a>
+        </div>
+      </li>
+			<li><a href="https://mail.google.com/mail/u/0/#inbox" target="_blank">Email</a></li>
+		 </ul>
+	  </div>
+	
+	<section>
+			<div class="settings">
+				<ul style="background: rgba(,,,100)">
+					<li class="dropdown" style="background-color: lightblue;"> <img src="http://icons.iconarchive.com/icons/grafikartes/flat-retro-modern/256/settings-icon.png" style="width:30px;height:30px;">
+						<div class="dropdown-content">
+							
+							<button type="button" onclick="myFunctionking()" style="width:80px;height:45px;">
+Blue</button>
+							<button type="button" onclick="myFunctionqueen()" style="width:80px;height:45px;">
+Red</button>
+							<button type="button" onclick="myFunctionjack()" style="width:80px;height:45px;">
+Grey</button>
+							<button type="button" onclick="myFunctionace()" style="width:80px;height:45px;">
+Yellow</button>
+							<button type="button" onclick="myFunctionjoker()" style="width:80px;height:45px;">
+Orange</button>
+								
+							
+							
+						</div>
+					</li>
+				</ul>
+			</div>
+	
+		<div class="brackground"></div>
+		</section>
+	
+	<div class="box">
+	<br><br>
+		
+	</div>
+	<div id="wrap">
+
+	</div>
+	
+	
+	
+	<script>
+		function myFunctionking() {
+    var x = document.getElementsByClassName("brackground");
+    x[0].style.backgroundColor = "blue";
+		}
+		function myFunctionqueen() {
+    var x = document.getElementsByClassName("brackground");
+    x[0].style.backgroundColor = "red";
+		}
+		function myFunctionjack() {
+    var x = document.getElementsByClassName("brackground");
+    x[0].style.backgroundColor = "grey";
+		}
+		function myFunctionace() {
+    var x = document.getElementsByClassName("brackground");
+    x[0].style.backgroundColor = "yellow";
+		}
+		function myFunctionjoker() {
+    var x = document.getElementsByClassName("brackground");
+    x[0].style.backgroundColor = "orange";
+		}
+		
+	</script>
+	
+	
+	
+	</body>
+</html>
+
+
         
-    </body>
-    </html>
+  

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+ 
+
+<style>
+canvas {
+    border:1px solid #d3d3d3;
+    background-color: #f1f1f1;
+}
+	section {
+		display: inline;
+		display: inline-flex;
+		margin-left: 10px;
+		margin-right: 10px;
+		
+	
+	}
+	#time {
+		width: 150px;
+		text-align: center;
+	}
+	
+	.timer {
+		margin: 4px;
+		display: inline-block
+		
+		
+	}
+</style>
+</head>
+<body onload="startGame()">
+<script>
+
+var flag = false;
+var flag_2 = false;
+var flag_3 = false;
+var flag_4 = false;
+var flag_5 = false;
+var flag_6 = false;
+
+var xx;
+var yy;
+var oneGamePiece;
+var twoGamePiece;
+var chng;
+var chng_2;
+var bounce;
+var ab = 3;
+var obs_1;
+	
+
+function startGame() {
+    oneGamePiece = new component(10, 20, "red", 00, 179);
+	  obs_1 = new obstacle(10, 100, "black", 300, 270);
+		
+    myGameArea.start();
+}
+
+var myGameArea = {
+    canvas : document.createElement("canvas"),
+    start : function() {
+        this.canvas.width = 580;
+        this.canvas.height = 270;
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        this.interval = setInterval(updateGameArea, 20);
+    },
+    clear : function() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    },
+    stop : function() {
+        clearInterval(this.interval);
+    }
+}
+
+function component(width, height, color, x, y) {
+    this.width = width;
+    this.height = height;
+    this.x = x;
+	  this.y = y; 
+		this.bounce = .999;
+		this.speed = -10;
+		this.incrs = .9;
+    
+
+		
+    this.update = function(){
+        ctx = myGameArea.context;
+        ctx.fillStyle = color;
+			  ctx.fill()
+				ctx.beginPath()
+        ctx.arc(this.x, this.y, this.width, 0, 2*Math.PI, false);
+		}
+		
+		this.posit =  function(){
+			this.speed += this.incrs
+	  	this.y += this.speed
+			this.hitBottom();
+		
+		}
+		this.hitBottom = function() {
+			var rockbottom = myGameArea.canvas.height - this.height
+			if(this.y > rockbottom){
+				this.y = rockbottom
+				this.speed = -(this.speed * this.bounce)
+				}
+			var topp = 0;
+			if(this.y < topp){
+				this.speed =(-this.speed * .9)
+			}
+		}
+		this.move = function() {
+			this.x += ab;
+			var rightside = myGameArea.canvas.width - this.width;
+			if(this.x > rightside){
+				flag = true;
+			}
+			if(this.x < 1){
+				flag = false;
+			}
+			this.switch();
+			
+		}
+		this.switch = function() {
+			if(flag == true){
+				ab = -5;
+				
+			}
+			else{
+				ab = 5; 
+			}
+		}
+			
+				
+		this.crashWith = function(otherobj) {
+        var myleft = this.x;
+        var myright = this.x + (this.width);
+        var mytop = this.y;
+        var mybottom = this.y + (this.height);
+        var otherleft = otherobj.x;
+        var otherright = otherobj.x + (otherobj.width);
+        var othertop = otherobj.y;
+        var otherbottom = otherobj.y + (otherobj.height);
+        var crash = true;
+        if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
+            crash = false;
+        }
+        return crash;
+    }
+
+		
+    }
+		
+
+
+		
+
+	
+	function obstacle(width, height, color, x, y) {
+    this.width = width;
+    this.height = height;
+    this.x = x;
+    this.y = y; 
+    this.update = function(){
+        ctx = myGameArea.context;
+        ctx.fillStyle = color;
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
+}
+	
+	function myFunctionmouse () {
+	oneGamePiece.speed = 20;
+	
+}
+
+window.onkeypress = myFunction
+function myFunction(event) {
+	
+    var keys = event.keyCode;
+    
+	if(keys == 32){
+		document.getElementById("keyscode").innerHTML = "yay"
+		oneGamePiece.speed = -10;
+	}
+	else if(keys == 115){
+		document.getElementById("keyscode").innerHTML = "The Unicode value is: " + keys;
+		oneGamePiece.incrs += .05;
+	}
+	else if(keys == 119){
+		document.getElementById("keyscode").innerHTML = "The Unicode value is: " + keys;
+		oneGamePiece.incrs -= .05;
+	}
+	else if(keys == 100){
+		document.getElementById("keyscode").innerHTML = "The Unicode value is: " + keys;
+		ab += .2;
+	}
+	else if(keys == 97){
+		document.getElementById("keyscode").innerHTML = "The Unicode value is: " + keys;
+		ab -= .2;
+	}
+	else{
+	
+		document.getElementById("keyscode").innerHTML = "The Unicode value is: " + keys;
+	}
+}
+	
+function updateGameArea() {
+		var mm = 20;
+		
+		
+   
+	
+    myGameArea.clear();
+	  obs_1.update();
+	  oneGamePiece.update();
+	  oneGamePiece.posit();
+		ab += .0007;
+	  
+		var ll = oneGamePiece;
+		
+	 
+	  
+	  if(ll.x > 1400){
+			flag = true;
+			
+			
+		}
+    if(ll.x < 1){
+
+			flag = false;
+		}
+		if(oneGamePiece.x > 400 && oneGamePiece < 430){
+			if(oneGamePiece.y > 190){
+				document.getElementById("keyscode").innerHTML = "fail"
+			}
+				
+				
+		}
+		
+		 
+		document.getElementById("demo").innerHTML = oneGamePiece.x
+	  document.getElementById("test").innerHTML = oneGamePiece.y
+	  document.getElementById("tester").innerHTML = oneGamePiece.speed
+	
+			
+	 
+    
+		
+	if(flag == true){
+		
+		
+		oneGamePiece.x -= ab;
+		
+	
+		
+		
+	}
+	else{
+		
+		oneGamePiece.x += ab;
+		
+		
+		
+	}
+	
+	
+	
+		
+}
+	var e
+	var c = 0;
+var t;
+var timer_is_on = 0;
+
+function timedCount() {
+	  e = c.toFixed(3);
+    document.getElementById("txt").innerHTML = e;
+    c = c + .1;
+    t = setTimeout(function(){ timedCount() }, 100);
+}
+
+function startCount() {
+    if (timer_is_on == 0) {
+        timer_is_on = 1;
+        timedCount();
+    }
+}
+
+function stopCount() {
+    clearTimeout(t);
+    timer_is_on = 0;
+}
+
+function resetCount() {
+		clearTimeout(t);
+    timer_is_on = 0;
+		c = 0;
+	  e = 0;
+	 document.getElementById("txt").innerHTML = e;
+}
+	
+	
+</script>
+	<br>
+<button onclick="myFunctionmouse()">bounce</button>
+<p id="demo">The red square is actually being drawn 50 times per second.</p>
+<p id="test"></p>
+<p id="tester"></p>
+<p id="testing"></p>
+<p id="keyscode"></p>
+ 
+	<button onclick="startCount()" class="timer">start</button> 
+	<div id="time" class="timer"><p id="txt" class="timer"></p> </div>
+	<button onclick="stopCount()" class="timer">stop</button>
+	<button onclick="resetCount()" class="timer">rest</button>
+
+
+</body>
+</html>

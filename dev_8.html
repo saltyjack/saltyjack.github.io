@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+canvas {
+    border:1px solid #d3d3d3;
+    background-color: #f1f1f1;
+}
+</style>
+</head>
+<body onload=startGame()>
+<script>
+
+var flag = false;
+var flag_2 = false;
+var flag_3 = false;
+var flag_4 = false;
+var flag_5 = false;
+var flag_6 = false;
+
+var xx;
+var yy;
+var oneGamePiece;
+var twoGamePiece;
+var chng;
+var chng_2;
+var bounce;
+	
+
+function startGame() {
+    oneGamePiece = new component(20, 20, "red", 00, 379);
+	  twoGamePiece = new component(20, 20, "red", 500, 120);
+		chng = new compspeed (6);
+		chng_2 = new compspeed (3);
+		
+    myGameArea.start();
+}
+
+var myGameArea = {
+    canvas : document.createElement("canvas"),
+    start : function() {
+        this.canvas.width = 1500;
+        this.canvas.height = 400;
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        this.interval = setInterval(updateGameArea, 20);
+    },
+    clear : function() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+}
+
+function component(width, height, color, x, y) {
+    this.width = width;
+    this.height = height;
+    this.x = x;
+    this.y = y; 
+    this.update = function(){
+        ctx = myGameArea.context;
+        ctx.fillStyle = color;
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
+}
+	
+function compspeed(speed){
+	this.speed = speed;
+  this.bounce = .9
+	
+}
+	
+	
+function updateGameArea() {
+		var mm = 20;
+   
+    myGameArea.clear();
+		
+	  
+		var ll = oneGamePiece;
+
+	  var yy = ll;
+		var cc = chng
+	  
+	  if(ll.x > 1400){
+			flag = true;
+			
+		}
+    if(ll.x < 1){
+
+			flag = false;
+			
+		}
+	 if(ll.y < 1){
+		
+		
+			flag_3 = true;
+			
+		}
+		
+		if( ll.y > 380) {
+			 
+			flag_5 = true
+			flag_3 = false;
+		}
+	else{
+		
+	}
+	
+		
+	
+			
+	   document.getElementById("demo").innerHTML = ll.x
+		 document.getElementById("test").innerHTML = ll.y
+		 document.getElementById("tester").innerHTML = cc.speed
+	   document.getElementById("testing").innerHTML = bounce
+	   
+	
+	   
+    
+		
+	if(flag == true){
+		
+		
+		oneGamePiece.x -= 3;
+		oneGamePiece.update();
+	
+		
+		
+	}
+	else{
+		
+		oneGamePiece.x += 3;
+		oneGamePiece.update();
+		
+		
+	}
+	
+	if(flag_3 == false) {
+	
+	
+		oneGamePiece.y -= cc.speed ;
+	//- up + down
+		
+		
+		
+	}
+	
+	else {
+	
+		
+	oneGamePiece.y += cc.speed;
+
+		
+		
+	}
+	if(flag_5 == false){
+		chng.speed -= 1
+		
+	}
+	else{
+		chng.speed = cc.speed;
+		chng.speed = 20 
+		flag_5 = false;
+	}
+
+
+	
+		
+}
+</script>
+<p id="demo">The red square is actually being drawn 50 times per second.</p>
+<p id="test"></p>
+<p id="tester"></p>
+<p id="testing"></p>
+</body>
+</html>

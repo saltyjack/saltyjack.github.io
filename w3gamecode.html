@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<style>
+canvas {
+    border:1px solid #d3d3d3;
+    background-color: #f1f1f1;
+}
+</style>
+</head>
+<body onload=startGame()>
+<script>
+
+var flag = false;
+var flag_2 = false;
+var flag_3 = false;
+var flag_4 = false;
+var flag_5 = false;
+var flag_6 = false;
+
+var xx;
+var yy;
+var oneGamePiece;
+var twoGamePiece;
+var chng;
+
+	
+
+function startGame() {
+    oneGamePiece = new component(20, 20, "red", 100, 120);
+	  twoGamePiece = new component(20, 20, "red", 500, 120);
+		chng = new compspeed(4);
+		
+    myGameArea.start();
+}
+
+var myGameArea = {
+    canvas : document.createElement("canvas"),
+    start : function() {
+        this.canvas.width = 800;
+        this.canvas.height = 400;
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        this.interval = setInterval(updateGameArea, 20);
+    },
+    clear : function() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    }
+}
+
+function component(width, height, color, x, y) {
+    this.width = width;
+    this.height = height;
+    this.x = x;
+    this.y = y; 
+    this.update = function(){
+        ctx = myGameArea.context;
+        ctx.fillStyle = color;
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
+}
+
+function compspeed(speed) {
+	this.speed = speed;
+	
+	
+}
+
+function updateGameArea() {
+   
+    myGameArea.clear();
+	  var xpn;
+		var help = 2;
+		
+	 	
+				
+		var ll = oneGamePiece;
+	  var kk = twoGamePiece;
+	  var yy = chng
+		
+	 
+	  
+	  if(ll.x > 500){
+			flag = true;
+			
+		}
+    if(kk.x < 1 && ll.x >500){
+
+			flag_2 = true;
+			
+		}
+	
+		if(kk.y < 1 || ll.y < 1){
+			flag_3 = true;
+			
+		}
+		
+		if(kk.y > 380 || ll.y > 380) {
+			flag_3 = false;
+			chng.speed = help
+		}
+		
+		if(chng.speed < -3){
+			flag_4 = true;
+			
+		}
+	
+	   document.getElementById("demo").innerHTML = ll.x
+		
+		//set flag forchange and comp speed
+		
+	
+	
+	if(flag == true){
+		
+		document.getElementById("tester").innerHTML = "worked"
+		document.getElementById("demo").innerHTML = "done"
+		document.getElementById("demo").innerHTML = kk.x
+		
+		
+			
+		
+		
+		twoGamePiece.x -= 2;
+		twoGamePiece.update();
+	
+		
+		
+	}
+	else{
+		document.getElementById("tester").innerHTML = "didnt work"
+		oneGamePiece.x += 2;
+		oneGamePiece.update();
+
+		
+	}
+	
+	if(flag_2 == true) {
+		document.getElementById("test").innerHTML = "worked"
+		oneGamePiece.x = 0;
+		twoGamePiece.x = 500;
+		flag = false;
+		flag_2 = false;
+		
+		
+	}
+	
+	else {
+		document.getElementById("test").innerHTML = "didnt work"
+	}
+	
+	if(flag_3 == false) {
+	
+		
+		oneGamePiece.y -= chng.speed;
+		twoGamePiece.y -= chng.speed;
+		
+		
+	}
+	
+	else {
+	
+	oneGamePiece.y += chng.speed;
+	twoGamePiece.y += chng.speed;
+		
+		
+	}
+	
+	
+	 
+
+	
+		
+}
+</script>
+<p id="demo">The red square is actually being drawn 50 times per second.</p>
+<p id="test"></p>
+<p id="tester"></p>
+<p id="expn"></p>
+</body>
+</html>

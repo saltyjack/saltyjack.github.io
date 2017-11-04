@@ -16,7 +16,8 @@ function draw() {
   for (var i = 0; i < asteroids.length; i++) {
     if (ship.hits(asteroids[i])) {
       console.log('ooops!');
-    }
+  docuent.location.reload()
+		}
     asteroids[i].render();
     asteroids[i].update();
     asteroids[i].edges();

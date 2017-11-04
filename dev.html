@@ -9,6 +9,7 @@
     position: absolute;
     background-color: #f9f9f9;
     min-width: 10px;
+		max-width: 85px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 		margin-right: 100px;
@@ -17,7 +18,7 @@
 		 .dropdown:hover .dropdown-content {
     display:block;
 		float: left;
-		margin-right: 100px;
+		margin-right: 00px;
 		}
 		
 		section {
@@ -124,15 +125,25 @@
 					<li class="dropdown" style="background-color: lightblue;"> 
 						<img src="http://icons.iconarchive.com/icons/grafikartes/flat-retro-modern/256/settings-icon.png" width="30px" height="30px">
 						<div class="dropdown-content">
-							<img src="http://www.pagetutor.com/colorpicker/picker2/net216.gif" width="146" height="98" usemap="colorpic">
+							<button type="button" onclick="myFunctionking()" style="width:75px;height:45px;">
+Blue</button>
+							<button type="button" onclick="myFunctionqueen()" style="width:75px;height:45px;">
+Red</button>
+							<button type="button" onclick="myFunctionjack()" style="width:80px;height:45px;">
+Grey</button>
+							<button type="button" onclick="myFunctionace()" style="width:80px;height:45px;">
+Yellow</button>
+							<button type="button" onclick="myFunctionjoker()" style="width:80px;height:45px;">
+Orange</button>
+							<button type="button" onclick="myFunctionidk()" style="width:85px;height:45px;">
+Set hex</button>
+							<input size="6" type="text" id="tes" value="" style="width:85px;height:20px;">
+							
+	
+						
+						
 
 							
-							<map name="colorpic">
-								
-								
-							
-							
-							</map>
 							
 							
 						</div>
@@ -143,6 +154,8 @@
 		<div class="brackground"></div>
 		</section>
 	
+	<br>
+	<br>
 	
 	
 	
@@ -170,7 +183,7 @@
 		}
 		function myFunctionking() {
     var x = document.getElementsByClassName("brackground");
-    x[0].style.backgroundColor = "blue";
+    x[0].style.backgroundColor = "#42f4d7";
 		}
 		function myFunctionqueen() {
     var x = document.getElementsByClassName("brackground");
@@ -187,6 +200,11 @@
 		function myFunctionjoker() {
     var x = document.getElementsByClassName("brackground");
     x[0].style.backgroundColor = "orange";
+		}
+		function myFunctionidk() {
+						var y = document.getElementById("tes").value;
+						var x = document.getElementsByClassName("brackground");
+							x[0].style.backgroundColor = y;
 		}
 		
 	</script>

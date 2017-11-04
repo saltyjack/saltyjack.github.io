@@ -1,0 +1,181 @@
+<html>
+<head>
+
+<style>
+canvas {
+    border:1px solid #d3d3d3;
+    background-color: #f1f1f1;
+}
+</style>
+</head>
+<body onload="startGame()">
+<script>
+
+var myGamePiece;
+var myObstacle;
+var flag = false;
+var ab = 7;
+
+function startGame() {
+    myGamePiece = new component(30, 30, "red", 10, 120);
+    myObstacle  = new component(10, 100, "green", 300, 220);    
+    myGameArea.start();
+}
+
+var myGameArea = {
+    canvas : document.createElement("canvas"),
+    start : function() {
+        this.canvas.width = 480;
+        this.canvas.height = 270;
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        this.interval = setInterval(updateGameArea, 20);
+    },
+    clear : function() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    },
+    stop : function() {
+        clearInterval(this.interval);
+    }
+}
+
+function component(width, height, color, x, y) {
+    this.width = width;
+    this.height = height;
+    this.x = x;
+    this.y = y;
+	  this.bounce = .999;
+		this.speed = -10;
+		this.incrs = .9;
+    this.update = function() {
+        ctx = myGameArea.context;
+        ctx.fillStyle = color;
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
+		this.posit =  function(){
+			this.speed += this.incrs
+	  	this.y += this.speed
+			this.hitBottom();
+		
+		}
+		this.hitBottom = function() {
+			var rockbottom = myGameArea.canvas.height - this.height
+			if(this.y > rockbottom){
+				this.y = rockbottom
+				this.speed = -(this.speed * this.bounce)
+				}
+			var topp = 0;
+			if(this.y < topp){
+				this.speed =(-this.speed * .9)
+			}
+			
+			
+	
+			}
+		this.move = function() {
+			
+			var rightside = myGameArea.canvas.width - this.width;
+			if(this.x > rightside){
+				flag = true;
+			}
+			if(this.x < 1){
+				flag = false;
+			}
+			this.switch();
+			
+		}
+		this.switch = function() {
+			if(flag == true){
+			this.x -= ab
+				
+			}
+			else{
+				this.x += ab 
+			}
+		}
+		
+		
+		
+    this.crashWith = function(otherobj) {
+        var myleft = this.x;
+        var myright = this.x + (this.width);
+        var mytop = this.y;
+        var mybottom = this.y + (this.height);
+        var otherleft = otherobj.x;
+        var otherright = otherobj.x + (otherobj.width);
+        var othertop = otherobj.y;
+        var otherbottom = otherobj.y + (otherobj.height);
+        var crash = true;
+        if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
+            crash = false;
+        }
+        return crash;
+    }
+}
+	
+	function myFunctionmouse () {
+	myGamePiece.speed = 20;
+	
+}
+
+window.onkeypress = myFunction
+function myFunction(event) {
+	
+    var keys = event.keyCode;
+    
+	if(keys == 32){
+		document.getElementById("keyscode").innerHTML = "yay"
+		myGamePiece.speed = -10;
+	}
+	else if(keys == 115){
+		document.getElementById("keyscode").innerHTML = "The Unicode value is: " + keys;
+		myGamePiece.incrs += .05;
+	}
+	else if(keys == 119){
+		document.getElementById("keyscode").innerHTML = "The Unicode value is: " + keys;
+		myGamePiece.incrs -= .05;
+	}
+	else if(keys == 100){
+		document.getElementById("keyscode").innerHTML = "The Unicode value is: " + keys;
+		ab += .2;
+	}
+	else if(keys == 97){
+		document.getElementById("keyscode").innerHTML = "The Unicode value is: " + keys;
+		ab -= .2;
+	}
+	else{
+	
+		document.getElementById("keyscode").innerHTML = "The Unicode value is: " + keys;
+	}
+}
+
+function updateGameArea() {
+    if (myGamePiece.crashWith(myObstacle)) {
+        myGameArea.stop();
+    } else {
+        myGameArea.clear();
+        myObstacle.update();
+				  myGamePiece.update();
+				myGamePiece.posit();	
+				myGamePiece.move();
+        
+     
+			
+			
+		}
+			document.getElementById("demo").innerHTML = myGamePiece.x
+	  document.getElementById("test").innerHTML = myGamePiece.y
+	  document.getElementById("tester").innerHTML = myGamePiece.speed
+		
+}
+
+</script>
+<div style="text-align:center;width:480px;">
+  
+</div>
+<p id="demo">The red square is actually being drawn 50 times per second.</p>
+<p id="test"></p>
+<p id="tester"></p>
+<p id="keyscode"></p>
+</body>
+</html>
