@@ -1,0 +1,133 @@
+
+<html>
+<head>
+ 
+
+<style>
+canvas {
+    border:1px solid #d3d3d3;
+    background-color: #f1f1f1;
+}
+	
+</style>
+</head>
+<body onload="startGame()">
+<script>
+
+
+var oneGamePiece;
+
+var oneObstacle;
+
+
+function startGame() {
+    oneGamePiece = new component(20, 20, "blue", 00, 179);
+	  oneObstacle = new component(10, 200, "black", 300, 120);
+    myGameArea.start();
+}
+
+var myGameArea = {
+    canvas : document.createElement("canvas"),
+    start : function() {
+        this.canvas.width = 480;
+        this.canvas.height = 270;
+        this.context = this.canvas.getContext("2d");
+        document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+        this.interval = setInterval(updateGameArea, 20);
+    },
+    clear : function() {
+        this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    },
+    stop : function() {
+        clearInterval(this.interval);
+    }
+}
+
+function component(width, height, color, x, y) {
+    this.width = width;
+    this.height = height;
+    this.x = x;
+    this.y = y; 
+    this.update = function() {
+        ctx = myGameArea.context;
+        ctx.fillStyle = color;
+        ctx.fillRect(this.x, this.y, this.width, this.height);
+    }
+		this.crashWith = function(otherobj) {
+        var myleft = this.x;
+        var myright = this.x + (this.width);
+        var mytop = this.y;
+        var mybottom = this.y + (this.height);
+        var otherleft = otherobj.x;
+        var otherright = otherobj.x + (otherobj.width);
+        var othertop = otherobj.y;
+        var otherbottom = otherobj.y + (otherobj.height);
+        var crash = true;
+        if ((mybottom < othertop) || (mytop > otherbottom) || (myright < otherleft) || (myleft > otherright)) {
+            crash = false;
+        }
+        return crash;
+    }
+}
+
+function updateGameArea() {
+	if (oneGamePiece.crashWith(oneObstacle)) {
+        myGameArea.stop();
+    } else {
+
+    myGameArea.clear();
+	  oneObstacle.update();
+	  oneGamePiece.update();
+		}
+}
+
+	var e
+	var c = 0;
+var t;
+var timer_is_on = 0;
+
+function timedCount() {
+	  e = c.toFixed(3);
+    document.getElementById("txt").innerHTML = e;
+    c = c + .1;
+    t = setTimeout(function(){ timedCount() }, 100);
+}
+
+function startCount() {
+    if (timer_is_on == 0) {
+        timer_is_on = 1;
+        timedCount();
+    }
+}
+
+function stopCount() {
+    clearTimeout(t);
+    timer_is_on = 0;
+}
+
+function resetCount() {
+		clearTimeout(t);
+    timer_is_on = 0;
+		c = 0;
+	  e = 0;
+	 document.getElementById("txt").innerHTML = e;
+}
+	
+	
+</script>
+	<br>
+<button onclick="myFunctionmouse()">bounce</button>
+<p id="demo">The red square is actually being drawn 50 times per second.</p>
+<p id="test"></p>
+<p id="tester"></p>
+<p id="testing"></p>
+<p id="keyscode"></p>
+ 
+	<button onclick="startCount()" class="timer">start</button> 
+	<div id="time" class="timer"><p id="txt" class="timer"></p> </div>
+	<button onclick="stopCount()" class="timer">stop</button>
+	<button onclick="resetCount()" class="timer">rest</button>
+
+
+</body>
+</html>
